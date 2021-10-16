@@ -135,7 +135,7 @@ sudo kubeadm init --pod-network-cidr 10.244.0.0/16 --apiserver-advertise-address
 sleep 360
 bash /vagrant/set-kubeconfig.sh
 sudo kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
-sudo kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
 sleep 60
 sudo cat /tmp/kubeadm_out.log | grep -A1 'kubeadm join' > /vagrant/cltjoincommand.sh
 sudo chmod +x /vagrant/cltjoincommand.sh
